@@ -73,5 +73,4 @@ public class Book {
 	public void setBookstatus(int bookstatus) {
 		this.bookstatus = bookstatus;
 	}
-
 }
