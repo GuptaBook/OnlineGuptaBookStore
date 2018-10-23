@@ -13,7 +13,6 @@ import com.thirdware.guptabookstore.models.Customer;
 public abstract class CustomerDaoImpl implements CustomerDao {
 	ConnectionProvider dbConnection=new ConnectionProvider();
 	Connection con=dbConnection.CONN();
-
 	public Customer customerRegister(Customer customer) {
 		if(con==null)
 		{

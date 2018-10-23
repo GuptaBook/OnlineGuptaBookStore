@@ -67,20 +67,21 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <h2>Employee Registration Form</h2>
   <div class="input-container">
     <i class="fa fa-user icon"></i>
-    <input class="input-field" type="text" placeholder="Username" name="usrnm">
+    <input class="input-field" type="text" placeholder="Username" name="uname" required>
   </div>
+  <div class="input-container">
+    <i class="fa fa-envelope icon"></i>
+    <input class="input-field" type="email"  placeholder="Email" name="email" required>
+  </div>
+  
 
   <div class="input-container">
     <i class="fa fa-envelope icon"></i>
-    <input class="input-field" type="email" pattern="[^@]*@[^ @]*^.*" placeholder="Email" name="email">
+    <input class="input-field" type="text"  pattern=".{10}" title="Enter Valid Mob No"  placeholder="phoneno" name="phoneno" required>
   </div>
   <div class="input-container">
-    <i class="fa fa-envelope icon"></i>
-    <input class="input-field" type="number"  placeholder="phoneno" name="phoneno">
-  </div>
-  <div class="input-container">
-    <i class="fa fa-key icon"></i>
-    <input class="input-field" type="password" placeholder="Password" name="psw">
+   <i class="fa fa-key icon"></i>
+    <input class="input-field" type="password" placeholder="Password" name="password" required>
   </div>
 
   <button type="submit" class="btn">Register</button>
