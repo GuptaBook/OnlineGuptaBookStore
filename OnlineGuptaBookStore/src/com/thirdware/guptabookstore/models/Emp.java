@@ -1,29 +1,25 @@
 package com.thirdware.guptabookstore.models;
 
 
-public class Customer {
-	private int cid;
-	private String cname;
+public class Emp {
+	private int eid;
+	private String ename;
 	private String email;
 	private String phoneno;
 	private String role;
 	private String password;
 	
-	public int getCid() {
-		return cid;
+	public int getEid() {
+		return eid;
 	}
-	public Customer() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setEid(int eid) {
+		this.eid = eid;
 	}
-	public void setCid(int cid) {
-		this.cid = cid;
+	public String getEname() {
+		return ename;
 	}
-	public String getCname() {
-		return cname;
-	}
-	public void setCname(String cname) {
-		this.cname = cname;
+	public void setEname(String ename) {
+		this.ename = ename;
 	}
 	public String getEmail() {
 		return email;
@@ -50,5 +46,6 @@ public class Customer {
 		this.password = password;
 	}
 	
+
 
 }
