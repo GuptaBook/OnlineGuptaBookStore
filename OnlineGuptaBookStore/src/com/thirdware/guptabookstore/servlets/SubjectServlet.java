@@ -1,7 +1,6 @@
 package com.thirdware.guptabookstore.servlets;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,23 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.thirdware.guptabookstore.dao.BookDao;
-import com.thirdware.guptabookstore.daoimpl.BookDaoImpl;
+import com.thirdware.guptabookstore.dao.AuthorDao;
+import com.thirdware.guptabookstore.dao.SubjectDao;
+import com.thirdware.guptabookstore.daoimpl.AuthorDaoImpl;
+import com.thirdware.guptabookstore.daoimpl.SubjectDaoImpl;
 import com.thirdware.guptabookstore.models.Author;
-import com.thirdware.guptabookstore.models.Book;
 import com.thirdware.guptabookstore.models.Subject;
 
 /**
- * Servlet implementation class FetchSubAuth
+ * Servlet implementation class SubjectServlet
  */
-@WebServlet("/FetchSubAuth")
-public class FetchSubAuth extends HttpServlet {
+@WebServlet("/SubjectServlet")
+public class SubjectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FetchSubAuth() {
+    public SubjectServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,17 +37,6 @@ public class FetchSubAuth extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		BookDao bookDao=new BookDaoImpl();
-		List<Subject> subList=bookDao.fetchBookBySub();
-		List<Author> authList=bookDao.fetchBookByAuth();
-		List<Book> lb=bookDao.fetchAllBook();
-		request.setAttribute("booklist", lb);
-		for(Subject sub:subList)
-		System.out.println(sub.getSubid()+" ");
-		request.setAttribute("sublist", subList);
-		request.setAttribute("authlist", authList);
-		RequestDispatcher rd=request.getRequestDispatcher("views/book/insertbook.jsp");
-		rd.forward(request, response);
 	}
 
 	/**
@@ -55,7 +44,24 @@ public class FetchSubAuth extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String subjectname=request.getParameter("subname");
+		String subjectdescription=request.getParameter("subdesc");
+		
+		
+		Subject subject = new Subject();
+	
+		subject.setSubname(subjectname);
+		subject.setSubdescription(subjectdescription);
+    
+		SubjectDao insert=new SubjectDaoImpl();
+		insert.insertSubject(subject);
+		
+		System.out.println("inserted to db");
+		
 		doGet(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher("FetchInsertSubjectServlet");
+		rd.forward(request, response);
+		
 	}
 
 }

@@ -10,23 +10,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.thirdware.guptabookstore.dao.BookDao;
-import com.thirdware.guptabookstore.daoimpl.BookDaoImpl;
+import com.thirdware.guptabookstore.dao.AuthorDao;
+import com.thirdware.guptabookstore.dao.SubjectDao;
+import com.thirdware.guptabookstore.daoimpl.AuthorDaoImpl;
+import com.thirdware.guptabookstore.daoimpl.SubjectDaoImpl;
 import com.thirdware.guptabookstore.models.Author;
-import com.thirdware.guptabookstore.models.Book;
 import com.thirdware.guptabookstore.models.Subject;
 
 /**
- * Servlet implementation class FetchSubAuth
+ * Servlet implementation class FetchInsertSubjectServlet
  */
-@WebServlet("/FetchSubAuth")
-public class FetchSubAuth extends HttpServlet {
+@WebServlet("/FetchInsertSubjectServlet")
+public class FetchInsertSubjectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FetchSubAuth() {
+    public FetchInsertSubjectServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,18 +37,13 @@ public class FetchSubAuth extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		BookDao bookDao=new BookDaoImpl();
-		List<Subject> subList=bookDao.fetchBookBySub();
-		List<Author> authList=bookDao.fetchBookByAuth();
-		List<Book> lb=bookDao.fetchAllBook();
-		request.setAttribute("booklist", lb);
-		for(Subject sub:subList)
-		System.out.println(sub.getSubid()+" ");
-		request.setAttribute("sublist", subList);
-		request.setAttribute("authlist", authList);
-		RequestDispatcher rd=request.getRequestDispatcher("views/book/insertbook.jsp");
+		System.out.println("entring into insert servlet");
+		SubjectDao subjectDao=new SubjectDaoImpl();
+		List<Subject> ls=subjectDao.getAllSubject();
+		request.setAttribute("listSubject", ls);
+		RequestDispatcher rd = request.getRequestDispatcher("views/category/insertsubject.jsp");
 		rd.forward(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

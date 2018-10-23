@@ -49,5 +49,21 @@
 			</tr>
 		</table>
 	</form>
+	<form>
+	<table align="center">
+	<tr><th>Book Id</th><th>Book Name</th><th>Book Description</th><th>Modification</th></tr>
+	<tbody>
+	<c:forEach items="${booklist}" var="bl">
+	<tr>
+	<td>${bl.bookid}</td>
+	<td>${bl.bookname}</td>
+	<td>${bl.bookdesc}</td>
+	<td><a href="FetchBookByIdUpdateServlet?id=${bl.bookid}">Update</a></td>
+	</tr></c:forEach>
+	</tbody>
+	
+	</table>
+	
+	</form>
 </body>
 </html>

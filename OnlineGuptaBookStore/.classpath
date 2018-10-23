@@ -48,10 +48,18 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/jars/jstl-1.2.jar">
+=======
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jstl">
+>>>>>>> c517d0cbb4490a2fd7979affcd25d0cce5676a49
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="lib" path="C:/Users/Mohit.c/Downloads/javax.servlet-3.0.jar/javax.servlet-3.0.jar"/>
+>>>>>>> c517d0cbb4490a2fd7979affcd25d0cce5676a49
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

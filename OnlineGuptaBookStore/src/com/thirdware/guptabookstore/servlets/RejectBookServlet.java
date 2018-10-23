@@ -34,6 +34,7 @@ public class RejectBookServlet extends HttpServlet {
 		BookDao bookDao=new BookDaoImpl();
 		bookDao.rejectBook(id);
 		System.out.println("rejected successfully");
+		response.sendRedirect("FetchAllAuthoServlet");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
