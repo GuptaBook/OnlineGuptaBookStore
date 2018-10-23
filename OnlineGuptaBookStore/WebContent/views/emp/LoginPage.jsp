@@ -161,7 +161,7 @@ span.psw {
  return true
 }
 </script>
-                        <div class="form-group">
+                      <div class="form-group">
                             <input type="password" class="form-control" placeholder="Your Password"  name="password" value="" required />
                         </div>
                         <div class="form-group">

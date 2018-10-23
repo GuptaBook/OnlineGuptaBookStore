@@ -73,7 +73,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="input-container">
     <i class="fa fa-envelope icon"></i>
     <input class="input-field" type="email"  placeholder="Email" name="email" required>
-    </div>
+  </div>
     <script language = "Javascript">
 
 function emailcheck(str) {
