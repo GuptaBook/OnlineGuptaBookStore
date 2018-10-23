@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.thirdware.guptabookstore.dao.BookDao;
 import com.thirdware.guptabookstore.daoimpl.BookDaoImpl;
 import com.thirdware.guptabookstore.models.Author;
+import com.thirdware.guptabookstore.models.Book;
 import com.thirdware.guptabookstore.models.Subject;
 
 /**
@@ -39,6 +40,8 @@ public class FetchSubAuth extends HttpServlet {
 		BookDao bookDao=new BookDaoImpl();
 		List<Subject> subList=bookDao.fetchBookBySub();
 		List<Author> authList=bookDao.fetchBookByAuth();
+		List<Book> lb=bookDao.fetchAllBook();
+		request.setAttribute("booklist", lb);
 		for(Subject sub:subList)
 		System.out.println(sub.getSubid()+" ");
 		request.setAttribute("sublist", subList);

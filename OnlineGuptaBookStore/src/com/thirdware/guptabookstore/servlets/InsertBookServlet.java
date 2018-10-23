@@ -74,15 +74,15 @@ public class InsertBookServlet extends HttpServlet {
 			System.out.println("Description: " + description);
 
 			// Gets absolute path to root directory of web app.
-			String appPath = request.getServletContext().getRealPath("");
+			String appPath = "C:/OnlineGuptaBook/OnlineGuptaBookStore/OnlineGuptaBookStore/WebContent/resources/images";
 			appPath = appPath.replace('\\', '/');
 
 			// The directory to save uploaded file
 			String fullSavePath = null;
 			if (appPath.endsWith("/")) {
-				fullSavePath = appPath +"resources/images/"+ SAVE_DIRECTORY;
+				fullSavePath = appPath +""+ SAVE_DIRECTORY;
 			} else {
-				fullSavePath = appPath + "/resources/images/" + SAVE_DIRECTORY;
+				fullSavePath = appPath + "/" + SAVE_DIRECTORY;
 			}
 
 			// Creates the save directory if it does not exists

@@ -36,6 +36,7 @@ public class ApproveBookServlet extends HttpServlet {
 		BookDao bookDao=new BookDaoImpl();
 		bookDao.approveBook(id);
 		System.out.println("approved successfully");
+		response.sendRedirect("FetchAllAuthoServlet");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 

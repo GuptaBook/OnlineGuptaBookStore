@@ -56,6 +56,7 @@ public class UpdateBookDetails extends HttpServlet {
 		book.setAuthid(authid);
 		BookDao bookDao=new BookDaoImpl();
 		Book b=bookDao.updateBook(book);
+		response.sendRedirect("FetchSubAuth");
 		doGet(request, response);
 	}
 
